@@ -4,6 +4,7 @@ using static System.Console;
 namespace interface
 {
 
+    /// 인터페이스 다형성 예제 시작
     interface IListtable
     {
         //해당 행에서 각 열의 값을 반환한다.
@@ -179,5 +180,71 @@ namespace interface
         {
             //...
         }
+    }
+
+    /// 인터페이스 구현 예제 시작
+    public class Contact : PdaItem. IListable, IComparable
+    {
+        //..
+        #region IComparable 멤버
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>
+        /// Less than zero
+        /// Zero
+        /// Greater than zero
+        /// </returns>
+
+        public int CompareTo(object obj)
+        {
+            int result;
+            Contact contact = obj as Contact;
+
+            if(obj == null)
+            {
+                // 이 인스턴스는  obj보다 크다
+                result = 1;
+            }
+            else if (obj != typeof(Contanct))
+            {
+                // 메세지에서 c#6.0 nameof 연산자를 사용해 형식 이름에 일관성을 보장한다.
+                throw new ArgumentException(
+                    $"The parameter is not a of type {nameof(Contact)}",nameof(obj));
+            }
+            else if(Contact.ReferenceEquals(this, obj))
+            {
+                result = 0;
+            }
+            else
+            {
+                result = LastName.CompareTo(contact.LastName);
+                if(result == 0)
+                {
+                    result = FitstName.CompareTo(contact.FitdtName);
+                }
+            }
+
+            return result;
+        }
+        #endregion
+
+        #region iListable 멤버
+        string[] IListable.ColumnValues
+        {
+            get
+            {
+                return new string[]
+                {
+                    FirstName,
+                    LastName,
+                    Phone,
+                    Address
+                };
+            }
+        }
+
+        #endregion
     }
 }
