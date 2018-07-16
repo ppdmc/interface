@@ -1,0 +1,3 @@
+/Users/gaon_design/gaon/07.study/interface/obj/Debug/netcoreapp2.0/interface.csproj.CoreCompileInputs.cache
+/Users/gaon_design/gaon/07.study/interface/obj/Debug/netcoreapp2.0/interface.AssemblyInfoInputs.cache
+/Users/gaon_design/gaon/07.study/interface/obj/Debug/netcoreapp2.0/interface.AssemblyInfo.cs
