@@ -247,4 +247,17 @@ namespace interface
 
         #endregion
     }
+
+    /// 인터페이스 명시적구현 예제 시작
+    string[] values;
+    Contact contact1, contact2;
+
+    //..
+
+    // 에러 : contact에서 ColumnValues()를 직접 호출 할 수 없다.
+    // values = ((IListable)contact2).ColumnValues;
+
+    //먼저 IListable로 형변환 한다.
+    values = ((IListable)contact2).ColumnValues;
+    //..
 }
