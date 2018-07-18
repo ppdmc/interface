@@ -286,4 +286,48 @@ namespace interface
         }
         #endregion
     }
+
+    public interface IAction
+    {
+        void Act();
+        void React();
+    }
+
+    public class Person : IAction
+    {
+        public void Act()
+        {            
+        }
+
+        void IAction.React()
+        {         
+        }
+    }
+
+    interface IReadableSettingsProvider
+    {
+        string GetSetting(string name, string defaultValue);
+    }
+
+    interface ISettingsProvider : IReadableSettingsProvider
+    {
+        void SetSetting(string name, string value);
+    }
+
+    class FileSettingsProvider : ISettingsProvider
+    {
+        #region ISettingsProvider 멤버
+        public void SetSettings(string name, string value)
+        {
+            //...
+        }
+        #endregion
+
+        #region IReadableSettingsProvider Menbers
+        public sting GetSetting(string name, string defaultValue)
+        {
+            //...
+        }
+        #endregion
+    }
 }
