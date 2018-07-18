@@ -248,7 +248,7 @@ namespace interface
         #endregion
     }
 
-    /// 인터페이스 명시적구현 예제 시작
+    // 인터페이스 명시적구현 예제 시작
     string[] values;
     Contact contact1, contact2;
 
@@ -260,4 +260,30 @@ namespace interface
     //먼저 IListable로 형변환 한다.
     values = ((IListable)contact2).ColumnValues;
     //..
+    
+
+    public class Contact : PdaItem, IListable, IComparable
+    {
+        // ...
+
+        public int CompareTo(object obj)
+        {
+            // ...
+        }
+        #region IListable 멤버
+        string[] IListable.ColumnValues
+        {
+            get
+            {
+                return new string[]
+                {
+                    FirstName,
+                    LastName,
+                    Phone,
+                    Address
+                };
+            }
+        }
+        #endregion
+    }
 }
